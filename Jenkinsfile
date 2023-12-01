@@ -18,8 +18,8 @@ pipeline {
     }
     post{
             success{
-                bat "curl http://admin:admin123@localhost:8080/job/finalPruebas/job/desplegarProduccion/build?token=produccion"
-                bat "curl http://admin:admin123@localhost:8080/job/finalPruebas/job/notificacionExito/build?token=finalPruebasDisparador"
+                bat "curl http://admin:12345@localhost:8080/job/finalPruebas/job/desplegarProduccion/build?token=produccion"
+                bat "curl http://admin:12345@localhost:8080/job/finalPruebas/job/notificacionExito/build?token=finalPruebasDisparador"
                 bat "echo Tarea Desplegar en servidor de produccion Iniciada correctamente"
             }
             failure{
