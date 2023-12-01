@@ -14,16 +14,16 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }        
+        }
     }
     post{
             success{
-                bat "curl http://Josue:josue2002@localhost:8080/job/FinalPruebas/job/DesplegarProduccion/build?token=Produccion"
-                bat "curl http://Josue:josue2002@localhost:8080/job/FinalPruebas/job/NotificacionCorreca/build?token=FinalPruebas"
+                bat "curl http://admin:admin@localhost:8080/job/finalPruebas/job/desplegarProduccion/build?token=produccion"
+                bat "curl http://admin:admin@localhost:8080/job/finalPruebas/job/notificacionExito/build?token=finalPruebasDisparador"
                 bat "echo Tarea Desplegar en servidor de produccion Iniciada correctamente"
             }
             failure{
-                bat "curl http://Josue:josue2002@localhost:8080/job/FinalPruebas/job/Notificacion/build?token=FinalPruebas"
+                bat "curl http://admin:admin@localhost:8080/job/finalPruebas/job/notificacionFallo/build?token=finalPruebasDisparador"
                 bat "echo Tarea notificar al correo Iniciada correctamente"
             }
         }
